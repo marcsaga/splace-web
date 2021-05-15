@@ -32,7 +32,7 @@ function App() {
         <Projects />
       </section>
       <sectiom id="projects">
-        <div style={{ height: '500px' }} />
+        <div style={{ height: '500px' }}>form</div>
       </sectiom>
       <Contact />
       <Footer />
