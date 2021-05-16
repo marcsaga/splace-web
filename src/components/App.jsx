@@ -4,6 +4,7 @@ import About from './About/About';
 import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
+import Form from './Form/Form';
 
 import { PortfolioProvider } from '../context/context';
 
@@ -27,13 +28,10 @@ function App() {
   return (
     <PortfolioProvider value={{ hero, about, projects, contact, footer }}>
       <Hero />
-      <section id="about">
-        <About />
-        <Projects />
-      </section>
-      <sectiom id="projects">
-        <div style={{ height: '500px' }}>form</div>
-      </sectiom>
+      <About />
+      <Projects />
+      <About />
+      <Form />
       <Contact />
       <Footer />
     </PortfolioProvider>

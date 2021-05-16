@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-scroll';
 import PortfolioContext from '../../context/context';
+import SplaceImagotype from '../../images/splace-imagotype.png';
 
 const Header = () => {
   const { hero } = useContext(PortfolioContext);
-  const { title, subtitle, cta } = hero;
+  const { subtitle, cta } = hero;
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -16,31 +17,34 @@ const Header = () => {
 
   return (
     <section id="hero" className="jumbotron">
-      <Container>
+      <Container className="main-content">
         <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={500} distance="30px">
-          <h1 className="hero-title">
+          <img src={SplaceImagotype} alt="splace-imagotype" className="imagotype" />
+          {/* <h1 className="hero-title">
             <span className="text-color-main">{title}</span>
-          </h1>
+          </h1> */}
           <h2 className="hero-subtitle">{subtitle}</h2>
         </Fade>
-        <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={1000} distance="30px">
-          <p className="hero-cta">
-            <span className="cta-btn cta-btn--hero">
-              <Link to="about" smooth duration={1000}>
-                {cta || 'Know more'}
-              </Link>
-            </span>
-          </p>
-        </Fade>
-        <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={1000} distance="30px">
-          <p className="hero-cta">
-            <span className="cta-btn cta-btn--hero">
-              <Link to="projects" smooth duration={1000}>
-                {cta || 'Formulario'}
-              </Link>
-            </span>
-          </p>
-        </Fade>
+        <Row className="buttons">
+          <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={1000} distance="30px">
+            <p className="hero-cta">
+              <span className="cta-btn cta-btn--hero">
+                <Link to="about" smooth duration={1000}>
+                  {cta || 'Información'}
+                </Link>
+              </span>
+            </p>
+          </Fade>
+          <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={1000} distance="30px">
+            <p className="hero-cta">
+              <span className="cta-btn cta-btn--hero">
+                <Link to="projects" smooth duration={1000}>
+                  {cta || 'Formulario'}
+                </Link>
+              </span>
+            </p>
+          </Fade>
+        </Row>
       </Container>
     </section>
   );

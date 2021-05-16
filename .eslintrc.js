@@ -7,7 +7,7 @@ module.exports = {
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
-    'no-console': 'warn',
+    'no-console': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-filename-extension': 'off', // disable if necessary
     'react/static-property-placement': 'off', // disable if necessary

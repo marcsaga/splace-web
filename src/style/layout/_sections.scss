@@ -8,3 +8,16 @@ section {
     padding-right: 1rem;
   }
 }
+
+.content-container {
+  height: 100vh !important;
+  min-height: 100vh;
+  padding: 5rem 0rem;
+  @media screen and (max-width: 900px) {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+.primary {
+}

@@ -4,9 +4,6 @@
   color: $white-color;
   height: 100%;
   border-top: 0px;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
-  padding-bottom: 10%;
 
   & > *:not(:last-child) {
     margin-bottom: 64px;

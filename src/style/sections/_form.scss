@@ -1,0 +1,33 @@
+#form {
+  margin-bottom: 15rem;
+  .form-content {
+    text-align: left;
+  }
+  label {
+    font-size: 14px;
+  }
+  small {
+    font-size: 10px;
+  }
+  .form-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, 75px);
+    gap: 24px;
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 475px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .submit-button {
+    background-color: $primary-color;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 24px;
+    border: none;
+    box-shadow: none;
+    margin-top: 16px;
+  }
+}

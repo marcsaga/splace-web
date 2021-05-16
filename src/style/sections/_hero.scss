@@ -83,4 +83,17 @@
       }
     }
   }
+  .buttons {
+    & > *:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+  .imagotype {
+    height: 25rem;
+    width: auto;
+    text-align: left !important;
+  }
+  .main-content {
+    text-align: left;
+  }
 }
