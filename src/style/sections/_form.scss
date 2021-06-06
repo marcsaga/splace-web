@@ -16,6 +16,7 @@
     gap: 24px;
     @media (max-width: 900px) {
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(auto-fill, 64px);
     }
     @media (max-width: 475px) {
       grid-template-columns: 1fr;
@@ -29,5 +30,20 @@
     border: none;
     box-shadow: none;
     margin-top: 16px;
+  }
+  .form-checkbox {
+    input {
+      background-color: $primary-color;
+      :checked {
+        background-color: $primary-color !important;
+      }
+    }
+    input[type='checkbox']:checked {
+      background-color: $primary-color;
+    }
+  }
+  .form-checkbox input[type='checkbox']:checked {
+    color: white !important;
+    background-color: green !important;
   }
 }

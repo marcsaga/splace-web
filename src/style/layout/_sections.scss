@@ -13,13 +13,26 @@ section {
   height: 100vh !important;
   min-height: 100vh;
   padding: 5rem 0rem;
+  & > div > :last-child {
+    margin-top: 90px;
+  }
   @media screen and (max-width: 900px) {
     height: auto;
     min-height: auto;
+    & > div > :last-child {
+      margin-top: 16px;
+    }
   }
 }
 
 .project-img {
-  height: 400px;
-  width: auto;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+.second-section {
+  background-color: $white-color !important;
+  color: $dark-blue-text !important;
+  background-image: none !important;
 }

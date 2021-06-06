@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Hero from './Hero/Hero';
 import About from './About/About';
-import Projects from './Projects/Projects';
+import About2 from './About2/About';
+import About3 from './About3/About';
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 import Form from './Form/Form';
@@ -29,8 +30,8 @@ function App() {
     <PortfolioProvider value={{ hero, about, projects, contact, footer }}>
       <Hero />
       <About />
-      <Projects />
-      <About />
+      <About3 />
+      <About2 />
       <Form />
       <Contact />
       <Footer />

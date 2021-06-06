@@ -1,14 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Container, Row, Col } from 'react-bootstrap';
 import Tilt from 'react-tilt';
 import Title from '../Title/Title';
-import PortfolioContext from '../../context/context';
-import VersionesCorrectasImg from '../../images/versionescorrectas.png';
+import { about2Data } from '../../mock/data';
+import LabelImg from '../../images/label.png';
 
-const About = () => {
-  const { about } = useContext(PortfolioContext);
-  const { img, paragraphOne } = about;
+const About2 = () => {
+  // eslint-disable-next-line no-undef
+  const { img, paragraphOne, paragraphTwo } = about2Data;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -44,7 +44,7 @@ const About = () => {
                 }}
               >
                 <div data-tilt className="thumbnail rounded">
-                  <img className="project-img" src={VersionesCorrectasImg} alt="cat-pic" />
+                  <img className="project-img" src={LabelImg} alt="cat-pic" />
                 </div>
               </Tilt>
             </Fade>
@@ -56,11 +56,11 @@ const About = () => {
                   {paragraphOne ||
                     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendu distinctioaperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate architecto itaque molestiae.'}
                 </p>
-                {/* <p className="about-wrapper__info-text">
+                <p className="about-wrapper__info-text section-text">
                   {paragraphTwo ||
                     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendu distinctioaperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate architecto itaque molestiae.'}
                 </p>
-                <p className="about-wrapper__info-text">
+                {/* <p className="about-wrapper__info-text">
                   {paragraphThree || 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'}
                 </p>
                 {resume && (
@@ -84,4 +84,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About2;

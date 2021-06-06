@@ -5,4 +5,10 @@ html {
 body {
   font-family: 'Calibri', sans-serif;
   text-align: center;
+  overflow-x: hidden;
+}
+
+.section-text {
+  font-size: 2.2rem;
+  text-align: justify !important;
 }
