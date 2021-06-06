@@ -26,7 +26,7 @@ const About2 = () => {
   return (
     <section id="about" className="content-container">
       <Container>
-        <Title title="¿Qué es Splace?" />
+        <Title title="En què consisteix?" />
         <Row className="about-wrapper">
           <Col md={6} sm={12}>
             <Fade bottom duration={1000} delay={600} distance="30px">

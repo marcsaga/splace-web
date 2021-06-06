@@ -4,18 +4,10 @@ import App from '../components/App';
 import { headData } from '../mock/data';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/main.scss';
-import { firebaseConfig } from '../../firebase.config';
 
 export default () => {
   const { title, lang, description } = headData;
 
-  import('firebase').then((firebase) => {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    } else {
-      firebase.app(); // if already initialized, use that one
-    }
-  });
   return (
     <>
       <Helmet>

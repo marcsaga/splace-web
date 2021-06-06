@@ -4,7 +4,6 @@ import About from './About/About';
 import About2 from './About2/About';
 import About3 from './About3/About';
 import Contact from './Contact/Contact';
-import Footer from './Footer/Footer';
 import Form from './Form/Form';
 
 import { PortfolioProvider } from '../context/context';
@@ -34,7 +33,6 @@ function App() {
       <About2 />
       <Form />
       <Contact />
-      <Footer />
     </PortfolioProvider>
   );
 }

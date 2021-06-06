@@ -1,19 +1,35 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
-import firebase from 'firebase';
 import { Form as BootstrapFrom, Container, Button } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
+import firebase from '@firebase/app';
 import Title from '../Title/Title';
 import TextInput from './TextInput';
+import '@firebase/auth';
+import '@firebase/firestore';
+import '@firebase/functions';
+import { firebaseConfig } from '../../../firebase.config';
+
+const config = firebaseConfig;
+let instance;
+function getFirebase() {
+  if (typeof window !== 'undefined') {
+    if (instance) return instance;
+    instance = firebase.initializeApp(config);
+    return instance;
+  }
+  return null;
+}
 
 const errorText = {
-  email: 'Introduzca un correo electónico',
-  websiteUrl: 'Introduzca una url',
-  phone: 'Introduzca un teléfono',
-  comercialName: 'Introduzca un nombre comercial',
-  sector: 'Introduzca un sector',
-  province: 'Introduzca una província',
-  locality: 'Introduzca una localidad válida',
-  postalCode: 'Introduzca un código postal',
+  email: 'Introdueix un correu electónic',
+  websiteUrl: 'Introdueix una url',
+  phone: 'Introdueix un teléfon',
+  comercialName: 'Introdueix un nom comercial',
+  sector: 'Introdueix un sector',
+  province: 'Introdueix una província',
+  locality: 'Introdueix una localitat válida',
+  postalCode: 'Introdueix un códi postal',
 };
 
 const Form = () => {
@@ -38,9 +54,14 @@ const Form = () => {
     data.locality !== undefined &&
     data.postalCode !== undefined;
 
+  const firebasedb = getFirebase();
+
   return (
     <section id="form">
-      <Title title="Formulario" />
+      <Title title="Formulari" />
+      <h4>
+        Introdueixi les dades corresponents i faci click a enviar per sol·licitar la certificació
+      </h4>
       <Fade bottom duration={800} delay={500} distance="30px">
         <Container>
           <BootstrapFrom
@@ -48,7 +69,7 @@ const Form = () => {
               e.preventDefault();
               if (disabledSubmit()) {
                 console.log(data);
-                const ref = firebase.database().ref();
+                const ref = firebasedb.database().ref();
                 ref.child('users').push(data);
               } else {
                 setProcessing(true);
@@ -57,8 +78,8 @@ const Form = () => {
           >
             <div className="form-content">
               <TextInput
-                label="Correo electrónico"
-                placeholder="Introduce tu correo"
+                label="Correu electrónic"
+                placeholder="Introdueix el teu correu"
                 type="email"
                 onChange={(e) => setData({ ...data, email: e.currentTarget.value })}
                 error={errorText.email}
@@ -67,7 +88,7 @@ const Form = () => {
               />
               <TextInput
                 label="Página web (url)"
-                placeholder="Introduce la url de tu página web"
+                placeholder="Introdueix la url de la teva página web"
                 type="url"
                 onChange={(e) => setData({ ...data, websiteUrl: e.currentTarget.value })}
                 error={errorText.websiteUrl}
@@ -76,13 +97,13 @@ const Form = () => {
               />
               <TextInput
                 label="Teléfono"
-                placeholder="Introduce teléfono"
+                placeholder="Introdueix un teléfono"
                 type="phone"
                 onChange={(e) => setData({ ...data, phone: e.currentTarget.value })}
               />
               <TextInput
                 label="Nombre comercial"
-                placeholder="Introduce el nombre comercial"
+                placeholder="Introdueix el nom comercial"
                 onChange={(e) => setData({ ...data, comercialName: e.currentTarget.value })}
                 error={errorText.comercialName}
                 showError={showError(data.comercialName)}
@@ -90,7 +111,7 @@ const Form = () => {
               />
               <TextInput
                 label="Sector"
-                placeholder="Introduce tu sector"
+                placeholder="Introdueix el teu sector"
                 onChange={(e) => setData({ ...data, sector: e.currentTarget.value })}
                 error={errorText.sector}
                 showError={showError(data.sector)}
@@ -98,34 +119,40 @@ const Form = () => {
               />
               <TextInput
                 label="Província"
-                placeholder="Introduce tu província"
+                placeholder="Introdueix la teva província"
                 onChange={(e) => setData({ ...data, province: e.currentTarget.value })}
                 error={errorText.province}
                 showError={showError(data.province)}
                 required
               />
               <TextInput
-                label="Localidad"
-                placeholder="Introduce tu localidad"
+                label="Localitat"
+                placeholder="Introdueix la teva localitat"
                 onChange={(e) => setData({ ...data, locality: e.currentTarget.value })}
                 error={errorText.locality}
                 showError={showError(data.locality)}
                 required
               />
               <TextInput
-                label="Código postal"
-                placeholder="Introduce tu código postal"
+                label="Códi postal"
+                placeholder="Introdueix la teu códi postal"
                 type="numeric"
                 onChange={(e) => setData({ ...data, postalCode: e.currentTarget.value })}
                 error={errorText.postalCode}
                 showError={showError(data.postalCode)}
                 required
               />
-              <BootstrapFrom.Check
+              {/* <BootstrapFrom.Check
                 className="form-checkbox"
                 type="checkbox"
-                label="Lea y acepte el código ético i la proteción de datos de Splace"
-              />
+                label="Llegeix i acepta el códi étic de Splace"
+              /> */}
+              <div className="form-check form-checkbox">
+                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                <label className="form-check-label" htmlFor="exampleCheck1">
+                  Llegeix i acepta el <a href="/">códi étic de Splace</a>
+                </label>
+              </div>
             </div>
             <Button type="submit" className="submit-button">
               Enviar

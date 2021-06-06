@@ -20,10 +20,10 @@ export default function HTML({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         {headComponents}
-        <script
+        {/* <script
           type="module"
           src="https://firebasestorage.googleapis.com/v0/b/splace-9175b.appspot.com/o/main.30838898.chunk.js?alt=media&token=f7c3020e-d1cd-4150-a093-71bd1a910711"
-        />
+        /> */}
       </head>
       <body {...bodyAttributes}>
         {preBodyComponents}

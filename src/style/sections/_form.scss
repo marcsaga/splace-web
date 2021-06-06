@@ -3,6 +3,12 @@
   .form-content {
     text-align: left;
   }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  h4 {
+    margin: 0 0 4rem 0;
+  }
   label {
     font-size: 14px;
   }
@@ -32,10 +38,25 @@
     margin-top: 16px;
   }
   .form-checkbox {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 16px;
     input {
       background-color: $primary-color;
+
       :checked {
         background-color: $primary-color !important;
+      }
+      cursor: pointer;
+    }
+    label {
+      height: 20px;
+      margin-left: 8px;
+    }
+    a {
+      color: $primary-color;
+      :hover {
+        text-decoration: underline;
       }
     }
     input[type='checkbox']:checked {

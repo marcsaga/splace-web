@@ -30,7 +30,7 @@ const Header = () => {
             <p className="hero-cta">
               <span className="cta-btn cta-btn--hero">
                 <Link to="about" smooth duration={1000}>
-                  {cta || 'Información'}
+                  {cta || 'Informació'}
                 </Link>
               </span>
             </p>
@@ -38,8 +38,8 @@ const Header = () => {
           <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={1000} distance="30px">
             <p className="hero-cta">
               <span className="cta-btn cta-btn--hero">
-                <Link to="projects" smooth duration={1000}>
-                  {cta || 'Formulario'}
+                <Link to="form" smooth duration={1000}>
+                  {cta || 'Formulari'}
                 </Link>
               </span>
             </p>

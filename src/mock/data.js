@@ -19,7 +19,7 @@ export const heroData = {
 export const aboutData = {
   img: 'profile.jpg',
   paragraphOne:
-    'Splace és una eina que ajuda a les pàgines web a certificar la seva autenticitat a la xarxa. Nascuda al 2021, és el resultat d’un estudi que analitzant el merca i les actuals tendències, s’ha desenvolupat per ajudar als usuaris a sentir-se segurs quan naveguen per internet. El ràpid accés i implementació de la etiqueta fa que es converteixi en una opció a tenir en compete a l’hora acomodar les visites dels usuaris.',
+    'Splace és una eina que ajuda a les pàgines web a certificar la seva autenticitat a la xarxa. Nascuda al 2021, és el resultat d’un estudi que analitzat el mercat i les actuals tendències. S’ha desenvolupat per ajudar als usuaris a sentir-se segurs quan naveguen per internet. El ràpid accés i implementació de la etiqueta fa que es converteixi en una opció a tenir en compete a l’hora d’aportar confiança a les pàgines web',
   paragraphTwo: '',
   paragraphThree: '',
   resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
@@ -28,9 +28,9 @@ export const aboutData = {
 export const about2Data = {
   img: 'profile.jpg',
   paragraphOne:
-    'Per obtindre la certificació, s’ha de complir uns criteris d’admissió, aquests estan recollits al codi ètic de Splace. (link). Apart s’haurà d’omplir un formulari en la següent seccions amb les dades necessaris per fer l’avaluació completa i identificar-te.',
+    'Al obtindre la certificació s’enviaràn per correu l’etiqueta i l’avís de Splace mitjançant el correu electrònic. L’etiqueta vindrà amb unes intruccions de col·locació senzilles que hauran de ser seguits.',
   paragraphTwo:
-    'Un cop omplis les dades i llegexis les condicions d’entrada, es durà aterme una avaluació comprovant qwue es compleixen totes les normes de SPlace. Al acar, se’t notificarà per correu electronic el resultat i s’entregarà l’etiqueta si s’prova la sol·licitud.',
+    'Apart, també es fàcilitarà una url que podrà ser inserida a la pàgina web per mostrar que la pàgina està certificada el primer cop que els usuaris la visitin.',
   paragraphThree: '',
   resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
 };
@@ -38,8 +38,9 @@ export const about2Data = {
 export const about3Data = {
   img: 'profile.jpg',
   paragraphOne:
-    'Al obtindre la certificació s’enviaràn per correu l’etiqueta i l’avís de Splace mitjançant el correu electrònic. L’quetiqueta vindrà amb unes intruccions de col·locació senzill que hauran de ser seguits. Apart, com també es fàcilitarà una url que podrà ser inserida a la pàgina web per mostrar que la pàgina està certificada el primer cop que la visitin',
-  paragraphTwo: '',
+    'Per obtindre la certificació, s’ha de complir uns criteris d’admissió, aquests estan recollits al codi ètic de Splace. Apart, s’haurà d’omplir un formulari en la següent seccion amb les dades necessaris per fer l’avaluació completa i identificar-te.',
+  paragraphTwo:
+    'Un cop omplis les dades i llegexis les condicions d’entrada, es durà a terme una avaluació comprovant qwue es compleixen totes les normes de Splace.',
   paragraphThree: '',
   resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
 };
@@ -59,9 +60,9 @@ export const projectsData = [
 
 // CONTACT DATA
 export const contactData = {
-  cta: '',
-  btn: '',
-  email: '',
+  cta: 'Marc Sánchez Garcia',
+  btn: "Envia'm un correu!",
+  email: 'marc.sanchez08@estudiant.upf.edu',
 };
 
 // FOOTER DATA
