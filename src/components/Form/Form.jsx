@@ -2,24 +2,23 @@
 import React, { useState, useEffect } from 'react';
 import { Form as BootstrapFrom, Container, Button } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import firebase from '@firebase/app';
+import firebase from 'firebase';
 import Title from '../Title/Title';
 import TextInput from './TextInput';
-import '@firebase/auth';
-import '@firebase/firestore';
-import '@firebase/functions';
-import { firebaseConfig } from '../../../firebase.config';
 
-const config = firebaseConfig;
-let instance;
-function getFirebase() {
-  if (typeof window !== 'undefined') {
-    if (instance) return instance;
-    instance = firebase.initializeApp(config);
-    return instance;
-  }
-  return null;
-}
+// const config = firebaseConfig;
+// let instance;
+// function getFirebase() {
+//   if (typeof window !== 'undefined') {
+//     if (instance) return instance;
+//     instance = firebase.initializeApp(config);
+//     return instance;
+//   }
+//   return null;
+// }
+
+const NORMATIVA_URL =
+  'https://firebasestorage.googleapis.com/v0/b/splace-9175b.appspot.com/o/Normativa%20de%20Splace%20(1).pdf?alt=media&token=76cb3a6c-b14d-46e4-b494-50e6d4840195';
 
 const errorText = {
   email: 'Introdueix un correu electónic',
@@ -37,7 +36,6 @@ const Form = () => {
   const [processing, setProcessing] = useState(false);
 
   const showError = (value) => {
-    console.log(value === undefined && processing);
     return value === undefined && processing;
   };
 
@@ -54,8 +52,6 @@ const Form = () => {
     data.locality !== undefined &&
     data.postalCode !== undefined;
 
-  const firebasedb = getFirebase();
-
   return (
     <section id="form">
       <Title title="Formulari" />
@@ -69,7 +65,7 @@ const Form = () => {
               e.preventDefault();
               if (disabledSubmit()) {
                 console.log(data);
-                const ref = firebasedb.database().ref();
+                const ref = firebase.database().ref();
                 ref.child('users').push(data);
               } else {
                 setProcessing(true);
@@ -150,7 +146,10 @@ const Form = () => {
               <div className="form-check form-checkbox">
                 <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                 <label className="form-check-label" htmlFor="exampleCheck1">
-                  Llegeix i acepta el <a href="/">códi étic de Splace</a>
+                  Llegeix i acepta el{' '}
+                  <a href={NORMATIVA_URL} target="_blank" rel="noreferrer">
+                    códi étic de Splace
+                  </a>
                 </label>
               </div>
             </div>
