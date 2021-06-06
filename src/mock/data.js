@@ -2,9 +2,9 @@ import { nanoid } from 'nanoid';
 
 // HEAD DATA
 export const headData = {
-  title: '', // e.g: 'Name | Developer'
-  lang: '', // e.g: en, es, fr, jp
-  description: '', // e.g: Welcome to my website
+  title: 'Splace', // e.g: 'Name | Developer'
+  lang: 'cat', // e.g: en, es, fr, jp
+  description: 'Benvingut a Splace', // e.g: Welcome to my website
 };
 
 // HERO DATA
@@ -19,8 +19,9 @@ export const heroData = {
 export const aboutData = {
   img: 'profile.jpg',
   paragraphOne:
-    'Splace és una eina que ajuda a les pàgines web a certificar la seva autenticitat a la xarxa. Nascuda al 2021, és el resultat d’un estudi que analitzat el mercat i les actuals tendències. S’ha desenvolupat per ajudar als usuaris a sentir-se segurs quan naveguen per internet. El ràpid accés i implementació de la etiqueta fa que es converteixi en una opció a tenir en compete a l’hora d’aportar confiança a les pàgines web',
-  paragraphTwo: '',
+    'Splace és una eina que ajuda a les pàgines web a certificar la seva autenticitat a la xarxa. Nascuda al 2021, és el resultat d’un estudi que analitzat el mercat i les actuals tendències. S’ha desenvolupat per ajudar als usuaris a sentir-se segurs quan naveguen per internet.',
+  paragraphTwo:
+    'El ràpid accés i implementació de la etiqueta fa que es converteixi en una opció a tenir en compete a l’hora d’aportar confiança a les pàgines web',
   paragraphThree: '',
   resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
 };
