@@ -41,7 +41,7 @@ export const about3Data = {
   paragraphOne:
     'Per obtindre la certificació, s’ha de complir uns criteris d’admissió, aquests estan recollits al codi ètic de Splace. Apart, s’haurà d’omplir un formulari en la següent seccion amb les dades necessaris per fer l’avaluació completa i identificar-te.',
   paragraphTwo:
-    'Un cop omplis les dades i llegexis les condicions d’entrada, es durà a terme una avaluació comprovant qwue es compleixen totes les normes de Splace.',
+    'Un cop omplis les dades i llegexis les condicions d’entrada, es durà a terme una avaluació comprovant que es compleixen totes les normes de Splace.',
   paragraphThree: '',
   resume: 'https://www.resumemaker.online/es.php', // if no resume, the button will not show up
 };
@@ -52,7 +52,8 @@ export const projectsData = [
     id: nanoid(),
     img: 'project.jpg',
     title: '',
-    info: 'Al obtindre la certificació s’enviaràn per correu l’etiqueta i l’avís de Splace mitjançant el correu electrònic. L’quetiqueta vindrà amb unes intruccions de col·locació senzill que hauran de ser seguits. Apart, com també es fàcilitarà una url que podrà ser inserida a la pàgina web per mostrar que la pàgina està certificada el primer cop que la visitin',
+    info:
+      'Al obtindre la certificació s’enviaràn per correu l’etiqueta i l’avís de Splace mitjançant el correu electrònic. L’quetiqueta vindrà amb unes intruccions de col·locació senzill que hauran de ser seguits. Apart, com també es fàcilitarà una url que podrà ser inserida a la pàgina web per mostrar que la pàgina està certificada el primer cop que la visitin',
     info2: '',
     url: '',
     repo: 'https://github.com/cobidev/react-simplefolio', // if no repo, the button will not show up

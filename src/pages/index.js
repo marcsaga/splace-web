@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import firebase from 'firebase';
 import { Helmet } from 'react-helmet';
 import App from '../components/App';
@@ -9,7 +9,11 @@ import { firebaseConfig } from '../../firebase.config';
 
 export default () => {
   const { title, lang, description } = headData;
-  firebase.initializeApp(firebaseConfig);
+  useEffect(() => {
+    if (window !== undefined) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  }, []);
   return (
     <>
       <Helmet>
