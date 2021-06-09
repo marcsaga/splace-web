@@ -32,11 +32,12 @@ const errorText = {
 };
 
 const Form = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({checked: false});
+  const [dbConfirmation, setDbConfimation] = useState({show: false, correct: false});
   const [processing, setProcessing] = useState(false);
 
   const showError = (value) => {
-    return value === undefined && processing;
+    return (value === undefined) && processing;
   };
 
   useEffect(() => {
@@ -50,7 +51,8 @@ const Form = () => {
     data.sector !== undefined &&
     data.province !== undefined &&
     data.locality !== undefined &&
-    data.postalCode !== undefined;
+    data.postalCode !== undefined &&
+    data.checked === true
 
   return (
     <section id="form">
@@ -66,8 +68,18 @@ const Form = () => {
               if (disabledSubmit()) {
                 console.log(data);
                 const ref = firebase.database().ref();
-                ref.child('users').push(data);
+                ref.child('users').push(data, (error) => {
+                  if(error === null){
+                    setData({}); 
+                    setDbConfimation({show: true, correct: true})
+                    setProcessing(false)
+                  }
+                  else{
+                    setDbConfimation({show: true, correct: false})
+                  }
+                });
               } else {
+                setDbConfimation({show: false, correct: false})
                 setProcessing(true);
               }
             }}
@@ -75,6 +87,7 @@ const Form = () => {
             <div className="form-content">
               <TextInput
                 label="Correu electrónic"
+                value={data.email ?? ''}
                 placeholder="Introdueix el teu correu"
                 type="email"
                 onChange={(e) => setData({ ...data, email: e.currentTarget.value })}
@@ -83,9 +96,10 @@ const Form = () => {
                 required
               />
               <TextInput
-                label="Página web (url)"
+                label="Página web (https://www...)"
                 placeholder="Introdueix la url de la teva página web"
                 type="url"
+                value={data.websiteUrl ?? ''}
                 onChange={(e) => setData({ ...data, websiteUrl: e.currentTarget.value })}
                 error={errorText.websiteUrl}
                 showError={showError(data.websiteUrl)}
@@ -93,12 +107,14 @@ const Form = () => {
               />
               <TextInput
                 label="Teléfono"
+                value={data.phone ?? ''}
                 placeholder="Introdueix un teléfono"
                 type="phone"
                 onChange={(e) => setData({ ...data, phone: e.currentTarget.value })}
               />
               <TextInput
                 label="Nombre comercial"
+                value={data.comercialName ?? ''}
                 placeholder="Introdueix el nom comercial"
                 onChange={(e) => setData({ ...data, comercialName: e.currentTarget.value })}
                 error={errorText.comercialName}
@@ -107,6 +123,7 @@ const Form = () => {
               />
               <TextInput
                 label="Sector"
+                value={data.sector ?? ''}
                 placeholder="Introdueix el teu sector"
                 onChange={(e) => setData({ ...data, sector: e.currentTarget.value })}
                 error={errorText.sector}
@@ -115,6 +132,7 @@ const Form = () => {
               />
               <TextInput
                 label="Província"
+                value={data.province ?? ''}
                 placeholder="Introdueix la teva província"
                 onChange={(e) => setData({ ...data, province: e.currentTarget.value })}
                 error={errorText.province}
@@ -123,6 +141,7 @@ const Form = () => {
               />
               <TextInput
                 label="Localitat"
+                value={data.locality ?? ''}
                 placeholder="Introdueix la teva localitat"
                 onChange={(e) => setData({ ...data, locality: e.currentTarget.value })}
                 error={errorText.locality}
@@ -131,6 +150,7 @@ const Form = () => {
               />
               <TextInput
                 label="Códi postal"
+                value={data.postalCode ?? ''}
                 placeholder="Introdueix la teu códi postal"
                 type="numeric"
                 onChange={(e) => setData({ ...data, postalCode: e.currentTarget.value })}
@@ -144,18 +164,29 @@ const Form = () => {
                 label="Llegeix i acepta el códi étic de Splace"
               /> */}
               <div className="form-check form-checkbox">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                <input checked={data.checked} type="checkbox" className="form-check-input" id="exampleCheck1" onChange={(e) => setData({...data, checked:e.currentTarget.checked })}/>
                 <label className="form-check-label" htmlFor="exampleCheck1">
-                  Llegeix i acepta el{' '}
+                  Llegeix i acepta la{' '}
                   <a href={NORMATIVA_URL} target="_blank" rel="noreferrer">
-                    códi étic de Splace
+                   normativa de Splace
                   </a>
                 </label>
+             
               </div>
             </div>
             <Button type="submit" className="submit-button">
               Enviar
             </Button>
+            {dbConfirmation.show === true && dbConfirmation.correct === false && (
+              <BootstrapFrom.Text style={{ color: '#E50000', fontSize: '14px' }}>
+                {`Oh no, alguna cosa ha anat malament, torna a intentar o prova més tard`}
+              </BootstrapFrom.Text>
+            )}
+            {dbConfirmation.show === true && dbConfirmation.correct === true && (
+              <BootstrapFrom.Text style={{ color: '#00b2a2', fontSize: '14px' }}>
+                {"Sol·licitud enviada, ens uns dies ens posarem en contacte amb tu a través del correu indicat"}
+              </BootstrapFrom.Text>
+            )}
           </BootstrapFrom>
         </Container>
       </Fade>
